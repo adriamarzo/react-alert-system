@@ -13,7 +13,7 @@
     "build-storybook": "build-storybook",
     "build-lib": "npm run prebuild && tsc && rollup -c --environment INCLUDE_DEPS,BUILD:production",
     "check-types": "tsc --pretty --noEmit",
-    "check-format": "prettier --check .",
+    "check-format": "prettier --check src",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "check-types:watch": "npm run check-types -- --watch",
     "format": "prettier --write .",
@@ -53,7 +53,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.26.1",
     "husky": "^7.0.0",
-    "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -65,15 +64,5 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  },
-  "lint-staged": {
-    "./src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
