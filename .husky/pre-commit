@@ -26,7 +26,3 @@ npm run check-types ||
             Make the changes required above.'
     false;
 )
-
-
-echo '✅ The code has been succcessfully commited. ✅'
-
