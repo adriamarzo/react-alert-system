@@ -30,9 +30,7 @@
   ],
   "author": "adria marzo",
   "license": "MIT",
-  "dependencies": {
-    "node": "^17.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
