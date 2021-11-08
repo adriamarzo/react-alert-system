@@ -2,9 +2,9 @@ import React from "react";
 import { cleanup, screen, render, act, waitFor } from "@testing-library/react";
 import AlertManager from "./alert-manager";
 import { AlertsEventHandler } from "../../utils";
-import { AlertEvent } from "../../models";
+import { Alert } from "../../models";
 
-const CustomAlert = ({ payload }: AlertEvent) => (
+const CustomAlert = ({ payload }: Alert) => (
   <div data-testid="custom-alert">{payload.title}</div>
 );
 
@@ -28,7 +28,8 @@ describe("AlertManager component", () => {
       );
     });
 
-    expect(screen.getByText("I'm an alert")).toBeTruthy();
+    expect(screen.getByText("Alert 1")).toBeTruthy();
+    expect(screen.getByText("Hello!")).toBeTruthy();
   });
 
   it("should have a custom alert", async () => {

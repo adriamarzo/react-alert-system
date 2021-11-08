@@ -5,6 +5,7 @@ export type Id = string;
 export interface Alert {
   id: Id;
   duration?: number;
+  payload?: any;
   preventDuplicated?: boolean;
   type?: AlertType;
   uid?: number;
@@ -12,7 +13,6 @@ export interface Alert {
 
 export interface AlertEvent extends Alert {
   action: AlertAction;
-  payload?: any;
   uid: number;
 }
 
