@@ -1,5 +1,32 @@
 import React from "react";
+import { AlertType, Alert } from "../../models";
+import StatusIcon from "../status-icon";
+import {
+  AlertRoot,
+  IconWrapper,
+  ContentWrapper,
+  Title,
+  Description,
+} from "./styled-components";
+interface IPayload {
+  title: string;
+  description?: string;
+}
 
-const Alert: React.FC = () => <p>I&apos;m an alert</p>;
+const AlertUI: React.FC<Alert> = ({ payload, type = AlertType.Info, id }) => {
+  const { description = "", title }: IPayload = payload || {};
 
-export default Alert;
+  return (
+    <AlertRoot type={type} data-testid={`alert-${id}`}>
+      <IconWrapper>
+        <StatusIcon type={type} />
+      </IconWrapper>
+      <ContentWrapper>
+        <Title>{title}</Title>
+        {description && <Description>{description}</Description>}
+      </ContentWrapper>
+    </AlertRoot>
+  );
+};
+
+export default AlertUI;
