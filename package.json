@@ -20,7 +20,8 @@
     "prepare": "husky install",
     "test": "jest --env=jsdom",
     "check-all": "npm run check-format && npm run check-lint && npm run check-types",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "deploy:gh-pages": "gh-pages -d ./storybook-static -b gh-pages"
   },
   "keywords": [
     "alert",
@@ -60,6 +61,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.26.1",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.0",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",

@@ -1,6 +1,6 @@
 # react-alert-system
 
-Simple library that manages alerts using reactJS. It provides a default ui for the alerts but you can customize it by defining a custom component.
+Simple library that manages alerts using reactJS. It provides a default ui for the alerts but you can customize it by providing a custom component.
 
 [![latest version](https://img.shields.io/npm/v/react-alert-system?color=success)](https://www.npmjs.com/package/react-alert-system)
 [![size](https://img.shields.io/bundlephobia/min/react-alert-system?color=green)](https://www.npmjs.com/package/react-alert-system)
@@ -14,7 +14,7 @@ Simple library that manages alerts using reactJS. It provides a default ui for t
 
 # Docs
 
-The library uses Javascript custom events, React Portals and React's hooks.
+The library uses Javascript custom events, React Portals and React's hooks. It requires [React](https://github.com/facebook/react) and 💅🏾 [styled-components](https://github.com/styled-components/styled-components) libraries.
 
 ### 1. Instantiate the Alert Manager component
 
@@ -70,6 +70,8 @@ You can create an alert from the `AlertsEventHandler` class provided. It has som
 | `type`              | `AlertType` <br>(`Info` by default) | Defines the type of the alert, it will be passed to the alert component |
 
 # Example:
+
+Check out the [storybook](https://adriamarzo.github.io/react-alert-system/?path=/story/alert-system--base) or this code example:
 
 ```js
 import {
