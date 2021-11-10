@@ -2,8 +2,11 @@
 
 Simple library that manages alerts using reactJS. It provides a default ui for the alerts but you can customize it by defining a custom component.
 
+[![latest version](https://img.shields.io/npm/v/react-alert-system?color=success)](https://www.npmjs.com/package/react-alert-system)
+[![size](https://img.shields.io/bundlephobia/min/react-alert-system?color=green)](https://www.npmjs.com/package/react-alert-system)
 [![reactjs](https://img.shields.io/github/package-json/dependency-version/adriamarzo/react-alert-system/dev/react)](https://github.com/facebook/react)
 [![styled-components](https://img.shields.io/github/package-json/dependency-version/adriamarzo/react-alert-system/dev/styled-components)](https://github.com/styled-components/styled-components)
+[![semantic-release](https://img.shields.io/badge/semantic-release-e10079.svg?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 ## Installation
 
