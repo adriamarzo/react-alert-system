@@ -5,7 +5,7 @@ import { Alert, AlertPosition } from "../../models";
 import AlertUI from "../alert";
 import { Root } from "./styled-components";
 
-interface IAlertManagerProps {
+export interface IAlertManagerProps {
   maxAlerts?: number;
   portalId: string;
   position?: AlertPosition;
