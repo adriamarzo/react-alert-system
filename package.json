@@ -1,5 +1,5 @@
 {
-  "name": "@badi/react-alert-system",
+  "name": "react-alert-system",
   "version": "0.0.0-development",
   "description": "Library that manages alerts using reactJS",
   "main": "dist/index.js",

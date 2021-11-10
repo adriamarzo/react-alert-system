@@ -2,7 +2,8 @@
 
 Simple library that manages alerts using reactJS. It provides a default ui for the alerts but you can customize it by defining a custom component.
 
----
+[![reactjs](https://img.shields.io/github/package-json/dependency-version/adriamarzo/react-alert-system/dev/react)](https://github.com/facebook/react)
+[![styled-components](https://img.shields.io/github/package-json/dependency-version/adriamarzo/react-alert-system/dev/styled-components)](https://github.com/styled-components/styled-components)
 
 ## Installation
 
