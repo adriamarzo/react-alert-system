@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertType, Alert } from "../../models";
+import { AlertPosition, AlertType, Alert } from "../../models";
 import StatusIcon from "../status-icon";
 import {
   AlertRoot,
@@ -8,16 +8,24 @@ import {
   Title,
   Description,
 } from "./styled-components";
-interface IPayload {
-  title: string;
-  description?: string;
+interface IAlertUIProps extends Alert {
+  payload?: {
+    title: string;
+    description?: string;
+  };
+  position: AlertPosition;
 }
 
-const AlertUI: React.FC<Alert> = ({ payload, type = AlertType.Info, id }) => {
-  const { description = "", title }: IPayload = payload || {};
+const AlertUI: React.FC<IAlertUIProps> = ({
+  payload,
+  type = AlertType.Info,
+  id,
+  position,
+}) => {
+  const { description = "", title } = payload || {};
 
   return (
-    <AlertRoot type={type} data-testid={`alert-${id}`}>
+    <AlertRoot type={type} data-testid={`alert-${id}`} position={position}>
       <IconWrapper>
         <StatusIcon type={type} />
       </IconWrapper>

@@ -1,13 +1,29 @@
-import styled from "styled-components";
-import { AlertType } from "../../models";
+import styled, { Keyframes, keyframes } from "styled-components";
+import { AlertPosition, AlertType } from "../../models";
 import { BACKGROUND_COLOR, BORDER_RADIUS } from "./constants";
 
 interface IAlertRootProps {
   type: AlertType;
+  position: AlertPosition;
 }
 
 const getBackgroundColorByType = ({ type }: IAlertRootProps): string =>
   BACKGROUND_COLOR[type] || BACKGROUND_COLOR[AlertType.Info];
+
+const isLeftPosition = (position: AlertPosition): boolean =>
+  position === AlertPosition.BottomLeft || position === AlertPosition.TopLeft;
+
+const appearAnimation = ({ position }: IAlertRootProps): Keyframes => {
+  const direction = isLeftPosition(position) ? 1 : -1;
+
+  return keyframes`
+    0%   { transform: scale(1,1) translateX(${-300 * direction}px); }
+    30%  { transform: scale(1,1) translateX(0); }
+    40%  { transform: scale(1.05,1.05) translateX(${20 * direction}px); }
+    54%  { transform: scale(0.95,0.95) translateX(0); }
+    100% { transform: scale(1,1) translateX(0); }
+  `;
+};
 
 export const AlertRoot = styled.div<IAlertRootProps>`
   position: relative;
@@ -22,6 +38,10 @@ export const AlertRoot = styled.div<IAlertRootProps>`
   height: auto;
   justify-content: flex-start;
   align-items: center;
+
+  animation-name: ${appearAnimation};
+  animation-timing-function: ease;
+  animation-duration: 1s;
 `;
 
 export const IconWrapper = styled.div`

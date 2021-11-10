@@ -45,6 +45,7 @@ const AlertManager: React.FC<IAlertManagerProps> = ({
               payload={alert.payload}
               type={alert.type}
               id={alert.id}
+              position={position}
             />
           ))}
         </Root>,
