@@ -1,6 +1,6 @@
 # react-alert-system
 
-Simple library that manages alerts using reactJS. It provides a default ui for the alerts but you can customize it by providing a custom component.
+Simple javascript library that manages alerts using reactJS. It provides a default ui for the alerts but you can customize it by providing a custom component.
 
 [![latest version](https://img.shields.io/npm/v/react-alert-system?color=success)](https://www.npmjs.com/package/react-alert-system)
 [![size](https://img.shields.io/bundlephobia/min/react-alert-system?color=green)](https://www.npmjs.com/package/react-alert-system)
@@ -25,7 +25,7 @@ It is ready to receive the following properties:
 | -------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | portalId       | String                                       | The id of the DOM element to use as a root element of the alerts                                          |
 | position       | `AlertPosition`<br>(`BottomLeft` by default) | The screen position of the alerts                                                                         |
-| maxAlerts      | Number<br>(`15` by default)                  | Maximum number of alerts to be rendered                                                                   |
+| maxAlerts      | Number<br>(`15` by default)                  | Maximum number of alerts to be rendered at the same time                                                  |
 | AlertComponent | React Component                              | Custom component that will represent the UI of the alert (if it is not defined it will use a default one) |
 | zIndex         | Number<br>(`1` by default)                   | Customize the z-order of the alerts to overlap the rest of the elements.                                  |
 
@@ -35,10 +35,9 @@ You can create an alert from the `AlertsEventHandler` class provided. It has som
 
 #### add (creates an alert):
 
-| Parameters | Type   | Description                                                |
-| ---------- | ------ | ---------------------------------------------------------- |
-| `alert`    | Alert  | Alert properties                                           |
-| `payload`  | Object | Any custom property passed directly to the alert component |
+| Parameters | Type    | Description                 |
+| ---------- | ------- | --------------------------- |
+| `alert`    | `Alert` | Object the alert properties |
 
 #### remove (removes an existing alert):
 
@@ -62,12 +61,13 @@ You can create an alert from the `AlertsEventHandler` class provided. It has som
 
 #### Alert:
 
-| Field               | Type                                | Description                                                             |
-| ------------------- | ----------------------------------- | ----------------------------------------------------------------------- |
-| `id`                | string                              | Identifier of the alert                                                 |
-| `duration`          | Number                              | How much time will be displayed the alert<br>(`5000` by default)        |
-| `preventDuplicated` | Boolean                             | Allow adding alerts with the same `id`<br>(`false` by default)          |
-| `type`              | `AlertType` <br>(`Info` by default) | Defines the type of the alert, it will be passed to the alert component |
+| Field               | Type                                | Description                                                                                                                                                                                  |
+| ------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                | string                              | Identifier of the alert                                                                                                                                                                      |
+| `duration`          | Number                              | How much time will be displayed the alert<br>(`5000` by default)                                                                                                                             |
+| `preventDuplicated` | Boolean                             | Allow adding alerts with the same `id`<br>(`false` by default)                                                                                                                               |
+| `type`              | `AlertType` <br>(`Info` by default) | Defines the type of the alert, it will be passed to the alert component                                                                                                                      |
+| `payload`           | Object                              | An object with all the custom data to be used from the UI alert component.<br />When using the default alert component, it expects to receive a `title` and an optional `description` fields |
 
 # Example:
 
@@ -84,18 +84,16 @@ import CustomAlert from "../components/custom-alert";
 
 const Component = () => {
   useEffect(() => {
-    AlertsEventHandler.add(
-      {
-        id: "id",
-        preventDuplicated: false,
-        duration: 5000,
-        type: AlertType.Warning,
-      },
-      {
+    AlertsEventHandler.add({
+      id: "id",
+      preventDuplicated: false,
+      duration: 5000,
+      payload: {
         title: "Title example",
         description: "Description of the example",
-      }
-    );
+      },
+      type: AlertType.Warning,
+    });
   }, []);
 
   return (

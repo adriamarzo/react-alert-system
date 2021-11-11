@@ -22,10 +22,10 @@ describe("AlertManager component", () => {
   it("should have a alert when the alert event is dispatched", async () => {
     render(<AlertManager portalId="app-portal" />);
     act(() => {
-      AlertsEventHandler.add(
-        { id: "1" },
-        { title: "Alert 1", description: "Hello!" }
-      );
+      AlertsEventHandler.add({
+        id: "1",
+        payload: { title: "Alert 1", description: "Hello!" },
+      });
     });
 
     expect(screen.getByText("Alert 1")).toBeTruthy();
@@ -35,10 +35,10 @@ describe("AlertManager component", () => {
   it("should have a custom alert", async () => {
     render(<AlertManager portalId="app-portal" AlertComponent={CustomAlert} />);
     act(() => {
-      AlertsEventHandler.add(
-        { id: "1" },
-        { title: "Alert 1", description: "Hello!" }
-      );
+      AlertsEventHandler.add({
+        id: "1",
+        payload: { title: "Alert 1", description: "Hello!" },
+      });
     });
 
     await waitFor(() => screen.getByTestId("custom-alert"));

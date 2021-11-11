@@ -15,15 +15,13 @@ export class AlertsEventHandler {
     window.dispatchEvent(new CustomEvent(eventName, { detail }));
   }
 
-  static add(
-    {
-      id,
-      duration = 5000,
-      preventDuplicated = false,
-      type = AlertType.Info,
-    }: Alert,
-    payload: object
-  ): void {
+  static add({
+    id,
+    duration = 5000,
+    payload,
+    preventDuplicated = false,
+    type = AlertType.Info,
+  }: Alert): void {
     AlertsEventHandler.emit(ALERT_EVENT_NAME, {
       id,
       duration,

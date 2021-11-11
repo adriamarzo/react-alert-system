@@ -24,13 +24,15 @@ const AlertSystem: React.FC<IAlertSystemProps> = ({
   preventDuplicated,
 }) => {
   const handleClick = (): void => {
-    AlertsEventHandler.add(
-      { id: alertId, type: alertType, preventDuplicated },
-      {
+    AlertsEventHandler.add({
+      id: alertId,
+      type: alertType,
+      payload: {
         title: alertTitle,
         description: alertDescription,
-      }
-    );
+      },
+      preventDuplicated,
+    });
   };
 
   return (

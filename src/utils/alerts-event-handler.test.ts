@@ -16,7 +16,7 @@ describe("AlertsEventHandler", () => {
   });
 
   it("should dispatch an adding alert event with default config", () => {
-    AlertsEventHandler.add({ id: "test" }, payloadMock);
+    AlertsEventHandler.add({ id: "test", payload: payloadMock });
 
     expect((dispatchEventSpy.mock.calls[0][0] as CustomEvent).detail).toEqual({
       action: AlertAction.Add,
@@ -33,10 +33,11 @@ describe("AlertsEventHandler", () => {
     const config: Alert = {
       id: "test2",
       duration: 1000,
+      payload: {},
       preventDuplicated: true,
       type: AlertType.Error,
     };
-    AlertsEventHandler.add(config, {});
+    AlertsEventHandler.add(config);
 
     expect((dispatchEventSpy.mock.calls[0][0] as CustomEvent).detail).toEqual({
       action: AlertAction.Add,
